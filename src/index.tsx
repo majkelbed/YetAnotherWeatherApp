@@ -1,11 +1,20 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-
-import { SomeComponent } from "./someComponent";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Router } from "@reach/router"
+import Layout from "@UI/Layout";
+import Countries from "@Views/Countries";
+import Dashboard from "@Views/Dashboard";
 
 window.onload = function() {
-    ReactDOM.render(
-        <SomeComponent compiler="TypeScript" framework="React"/>,
-        document.getElementById("wrapper")
-    );
+  ReactDOM.render(
+          <Layout>
+            <Router>
+              <Dashboard path="/"></Dashboard>
+              <Countries path="/countries"></Countries>
+              {/* <NotFound default></NotFound> */}
+            </Router>
+          </Layout>
+    ,
+    document.getElementById("wrapper")
+  );
 };
